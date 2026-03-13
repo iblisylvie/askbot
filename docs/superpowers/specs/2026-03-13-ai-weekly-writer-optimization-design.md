@@ -113,11 +113,33 @@
 *来源：AI技术周刊第X期 | 更多AI情报关注 [公众号名]*
 ```
 
+### 信息图生成
+
+每篇拆条图文配 1 张竖版信息图。使用 `baoyu-infographic` skill 生成，具体调用方式：
+
+1. 将拆条图文的 Markdown 文件作为输入
+2. 推荐参数组合（按话题类型选择）：
+
+| 话题类型 | 推荐 layout | 推荐 style | 说明 |
+|----------|-------------|------------|------|
+| 新模型/产品发布 | `bridge` | `technical-schematic` | 突出产品能力对比 |
+| 行业趋势/数据 | `bento-grid` | `data-storytelling` | 适合多维数据展示 |
+| 工具推荐 | `flow-process` | `craft-handmade` | 展示使用流程 |
+| 通用话题 | `magazine-spread` | `editorial-clean` | 杂志感排版 |
+
+3. 统一使用竖版（`--aspect portrait`）、中文（`--lang zh`）
+4. 如果信息图生成失败，跳过配图，仅输出 Markdown 文件
+
+**调用示例：**
+```
+使用 baoyu-infographic skill 处理 output/AI图文_第X期_01.md
+参数：--layout bridge --style technical-schematic --aspect portrait --lang zh
+```
+
 ### 约束
 
 - 每篇 500-800 字
 - 配 1 张竖版信息图（适配手机阅读）
-- 使用 `baoyu-infographic` skill 生成配图，传入话题核心数据点
 
 ---
 
@@ -155,12 +177,14 @@
 
 | 文件 | 内容 | 预估行数 | 加载时机 |
 |------|------|----------|----------|
-| `SKILL.md` | 核心流程 + 写作公式 + 拆条逻辑 | ~300行 | 始终加载 |
-| `references/accuracy-checklist.md` | 准确性检查清单 | ~100行 | 核查阶段加载 |
-| `references/error-examples.md` | 历史错误案例 | ~80行 | 核查阶段加载 |
-| `assets/weekly-template.md` | 周报模板（优化后） | ~80行 | 生成周报时加载 |
-| `assets/article-template.md` | 拆条图文模板（新增） | ~30行 | 生成图文时加载 |
-| `references/examples.md` | 示例（更新，含图文示例） | ~350行 | 参考时加载 |
+| `SKILL.md` | 核心流程 + 写作公式 + 拆条逻辑 | ~300行 | skill 触发时自动加载 |
+| `references/accuracy-checklist.md` | 准确性检查清单（从现有 SKILL.md 406-566 行纯提取，不改内容） | ~100行 | SKILL.md 的 Step 7 中通过 Read 显式加载 |
+| `references/error-examples.md` | 历史错误案例（从现有 SKILL.md 497-532 行纯提取，不改内容） | ~80行 | SKILL.md 的 Step 7 中通过 Read 显式加载 |
+| `assets/weekly-template.md` | 周报模板（基于现有 SKILL.md 117-243 行的内联模板，应用 Part 3 的板块调整） | ~80行 | SKILL.md 的 Step 3 中通过 Read 显式加载 |
+| `assets/article-template.md` | 拆条图文模板（新增，内容见 Part 2 模板） | ~30行 | SKILL.md 的 Step 5 中通过 Read 显式加载 |
+| `references/examples.md` | 示例（更新：保留现有示例，新增 1 个拆条图文示例） | ~350行 | 需要时通过 Read 显式加载 |
+
+**加载机制说明：** SKILL.md 是 skill 触发时唯一自动加载的文件。其他文件通过 SKILL.md 工作流中的显式指令加载，如"读取 `references/accuracy-checklist.md` 并逐项核查"。这样 agent 在早期步骤不会消耗这些文件的 token。
 
 ### 优化后文件结构
 
@@ -199,7 +223,9 @@ Step 3: 生成周报（写作风格重塑后）
 
 Step 4: 拆条选题（新增）
   - 从周报内容中按评分标准选出 3-5 个话题
-  - 输出选题列表供用户确认（可跳过确认）
+  - 默认行为：展示选题列表并等待用户确认
+  - 用户可以：接受全部 / 替换某条 / 要求重选
+  - 如用户在触发 skill 时说"全自动"，则跳过确认直接生成
 
 Step 5: 生成拆条图文（新增）
   - 按图文模板重写每个话题
@@ -225,3 +251,20 @@ Step 8: 转换为微信格式（可选）
 - html2md.js 脚本改动
 - 数据采集流程变更（summary.csv 格式不变）
 - smol_ai 等新数据源支持（后续迭代）
+
+---
+
+## 补充说明
+
+### 实施路径
+
+所有文件改动均在 `/root/askbot/skills/ai-weekly-writer/` 目录进行（repo 源码目录）。已有符号链接 `~/.agents/skills/ai-weekly-writer` 指向此目录，无需额外操作。
+
+### 期号确定
+
+`第X期` 的 X 通过扫描 `output/` 目录下已有的 `AI技术周刊_第*期_*.md` 文件来确定下一期号。如果没有找到任何历史期号，从第 1 期开始。
+
+### 写作风格适用范围
+
+- **周报**：混合风格 — 开头/标题/标签用"焦虑+解药"吸引注意，内容主体保留事实准确性和技术可信度，但降低术语密度
+- **拆条图文**：完全"焦虑+解药"风格 — 纯面向泛人群，不假设读者有技术背景
