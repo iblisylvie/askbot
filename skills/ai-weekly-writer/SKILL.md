@@ -21,7 +21,8 @@ AI技术周报
 
 每日新闻原件存储在 `output/YYYY-MM-DD/` 目录下：
 - `summary.csv` - 文章元数据（标题、公众号、摘要、链接、本地文件路径）
-- `文章标题.html` - 文章内容HTML文件
+- `文章标题.html` - 文章内容HTML文件（原始爬取）
+- `文章标题.md` - 文章内容Markdown文件（HTML转换后，用于降低处理成本）
 
 ### summary.csv 格式示例
 
@@ -45,7 +46,7 @@ account_name,app_msg_id,digest,link,title,create_time,local_file_path
 - **来源**: 公众号名称
 - **摘要**: 文章摘要
 - **链接**: 文章链接
-- **核心内容**: 从HTML内容中提取的关键信息
+- **核心内容**: 从Markdown内容中提取的关键信息
 
 ...
 
@@ -59,9 +60,52 @@ account_name,app_msg_id,digest,link,title,create_time,local_file_path
 ### 生成日报的步骤
 
 1. 读取 summary.csv 获取当日所有文章元数据
-2. 读取每篇文章的 HTML 内容，提取核心信息
-3. 按重要性/热度排序文章
-4. 生成结构化日报文件到 `output/AI科技日报_YYYY-MM-DD_content.md`
+2. **HTML 转 Markdown（降低成本）**
+   - 对于每篇文章的 HTML 文件，使用 `html2md.js` 转换为 Markdown
+   - 转换后的 Markdown 文件保存在同目录，扩展名为 `.md`
+   - 转换脚本会自动清理微信 UI 元素、JavaScript 代码等无用内容
+   - 使用 Markdown 替代原始 HTML 可显著降低 token 消耗
+3. 读取每篇文章的 **Markdown** 内容，提取核心信息
+4. 按重要性/热度排序文章
+5. 生成结构化日报文件到 `output/AI科技日报_YYYY-MM-DD_content.md`
+
+### HTML 转 Markdown 工具使用
+
+**脚本位置：** `$AI_WEEKLY_WRITER_HOME/scripts/html2md.js`
+
+**环境变量设置（推荐）：**
+```bash
+# 添加到 ~/.bashrc 或 ~/.zshrc，使所有 agent 可用
+export AI_WEEKLY_WRITER_HOME="$HOME/.claude/skills/ai-weekly-writer"
+# 其他 agent 可能使用不同路径，如：
+# export AI_WEEKLY_WRITER_HOME="$HOME/.agents/skills/ai-weekly-writer"
+```
+
+**首次使用：**
+```bash
+cd $AI_WEEKLY_WRITER_HOME
+npm install
+```
+
+**使用示例：**
+```bash
+# 转换单个 HTML 文件
+node $AI_WEEKLY_WRITER_HOME/scripts/html2md.js output/2026-01-15/文章标题.html
+# 输出：同目录下的 文章标题.md
+
+# 批量转换某天所有文章
+for f in output/2026-01-15/*.html; do
+    node $AI_WEEKLY_WRITER_HOME/scripts/html2md.js "$f"
+done
+```
+
+**html2md.js 脚本功能：**
+- 自动移除 `<script>`、`<style>`、`<head>` 等无用标签
+- 清理微信 UI 元素（"微信扫一扫"、"继续滑动"等）
+- 保留文章正文、图片、链接等核心内容
+- 将 HTML 转换为干净的 Markdown 格式
+
+**注意：** 脚本依赖相对路径的 `node_modules`，请确保在 `$AI_WEEKLY_WRITER_HOME` 目录下运行 `npm install`。
 
 ## 步骤2: 生成周报
 
@@ -543,8 +587,9 @@ account_name,app_msg_id,digest,link,title,create_time,local_file_path
 
 2. **生成每日日报**（对于每一天）
    - 读取 `output/YYYY-MM-DD/summary.csv` 获取文章列表
-   - 读取每篇文章的 HTML 内容
-   - 提取核心信息，过滤广告/低质量内容
+   - **HTML 转 Markdown**：使用 `scripts/html2md.js` 将每篇文章的 HTML 转换为 Markdown
+   - 读取转换后的 **Markdown** 内容，提取核心信息
+   - 过滤广告/低质量内容
    - 按重要性排序
    - 生成 `output/AI科技日报_YYYY-MM-DD_content.md`
 
@@ -602,9 +647,9 @@ account_name,app_msg_id,digest,link,title,create_time,local_file_path
 
 ## 数据核实操作指南
 
-### 遇到以下关键词时必须回查原文HTML
+### 遇到以下关键词时必须回查原文Markdown
 
-当周报中出现以下表述时，**必须**回到原始HTML文件核实：
+当周报中出现以下表述时，**必须**回到原始 Markdown 文件核实：
 
 | 关键词/表述 | 核实要点 | 常见错误 |
 |-------------|----------|----------|
@@ -618,12 +663,10 @@ account_name,app_msg_id,digest,link,title,create_time,local_file_path
 ### 核实方法
 
 ```bash
-# 示例：核实MiniMax的状态
+# 示例：核实MiniMax的状态（使用转换后的Markdown文件）
 python3 -c "
-import re
-with open('output/2026-03-03/MiniMax首份财报.html', 'r') as f:
-    html = f.read()
-text = re.sub(r'<[^>]+>', ' ', html)
+with open('output/2026-03-03/MiniMax首份财报.md', 'r') as f:
+    text = f.read()
 # 查找关键证据
 if '00100.HK' in text:
     print('✓ 已上市，股票代码00100.HK')
