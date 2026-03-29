@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Main spiral gradient -->
+    <radialGradient id="spiralGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#E07A5F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E07A5F;stop-opacity:0.7" />
+    </radialGradient>
+
+    <!-- Glow effect for main path -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Ink wash effect -->
+    <filter id="inkWash">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Background chaos layer: 80+ random dots -->
+  <g fill="#E07A5F" opacity="0.25">
+    <circle cx="45" cy="320" r="1.5"/>
+    <circle cx="78" cy="285" r="1.2"/>
+    <circle cx="112" cy="310" r="1.8"/>
+    <circle cx="95" cy="340" r="1.3"/>
+    <circle cx="130" cy="295" r="1.6"/>
+    <circle cx="68" cy="355" r="1.4"/>
+    <circle cx="155" cy="275" r="1.7"/>
+    <circle cx="88" cy="315" r="1.1"/>
+    <circle cx="175" cy="305" r="1.5"/>
+    <circle cx="105" cy="270" r="1.9"/>
+    <circle cx="195" cy="260" r="1.3"/>
+    <circle cx="125" cy="335" r="1.6"/>
+    <circle cx="215" cy="290" r="1.4"/>
+    <circle cx="145" cy="320" r="1.2"/>
+    <circle cx="235" cy="245" r="1.8"/>
+    <circle cx="165" cy="350" r="1.5"/>
+    <circle cx="255" cy="275" r="1.7"/>
+    <circle cx="185" cy="330" r="1.3"/>
+    <circle cx="275" cy="230" r="1.6"/>
+    <circle cx="205" cy="315" r="1.4"/>
+    <circle cx="295" cy="260" r="1.5"/>
+    <circle cx="225" cy="340" r="1.8"/>
+    <circle cx="315" cy="215" r="1.2"/>
+    <circle cx="245" cy="325" r="1.6"/>
+    <circle cx="335" cy="245" r="1.9"/>
+    <circle cx="265" cy="310" r="1.3"/>
+    <circle cx="355" cy="200" r="1.7"/>
+    <circle cx="285" cy="295" r="1.5"/>
+    <circle cx="305" cy="280" r="1.4"/>
+    <circle cx="325" cy="265" r="1.6"/>
+    <circle cx="52" cy="298" r="1.3"/>
+    <circle cx="85" cy="268" r="1.8"/>
+    <circle cx="118" cy="328" r="1.5"/>
+    <circle cx="138" cy="258" r="1.2"/>
+    <circle cx="158" cy="288" r="1.7"/>
+    <circle cx="178" cy="348" r="1.4"/>
+    <circle cx="198" cy="278" r="1.6"/>
+    <circle cx="218" cy="308" r="1.3"/>
+    <circle cx="238" cy="268" r="1.9"/>
+    <circle cx="258" cy="338" r="1.5"/>
+    <circle cx="278" cy="248" r="1.2"/>
+    <circle cx="298" cy="298" r="1.8"/>
+    <circle cx="318" cy="228" r="1.6"/>
+    <circle cx="338" cy="278" r="1.4"/>
+    <circle cx="358" cy="218" r="1.7"/>
+    <circle cx="60" cy="305" r="1.5"/>
+    <circle cx="92" cy="275" r="1.3"/>
+    <circle cx="122" cy="345" r="1.8"/>
+    <circle cx="152" cy="265" r="1.6"/>
+    <circle cx="182" cy="295" r="1.2"/>
+    <circle cx="212" cy="325" r="1.9"/>
+    <circle cx="242" cy="255" r="1.4"/>
+    <circle cx="272" cy="285" r="1.7"/>
+    <circle cx="302" cy="315" r="1.5"/>
+    <circle cx="332" cy="235" r="1.3"/>
+    <circle cx="362" cy="265" r="1.8"/>
+    <circle cx="72" cy="292" r="1.6"/>
+    <circle cx="102" cy="322" r="1.4"/>
+    <circle cx="132" cy="282" r="1.5"/>
+    <circle cx="162" cy="312" r="1.7"/>
+    <circle cx="192" cy="252" r="1.2"/>
+    <circle cx="222" cy="282" r="1.9"/>
+    <circle cx="252" cy="312" r="1.3"/>
+    <circle cx="282" cy="242" r="1.6"/>
+    <circle cx="312" cy="272" r="1.8"/>
+    <circle cx="342" cy="302" r="1.4"/>
+    <circle cx="372" cy="232" r="1.5"/>
+    <circle cx="55" cy="312" r="1.7"/>
+    <circle cx="87" cy="342" r="1.3"/>
+    <circle cx="117" cy="262" r="1.6"/>
+    <circle cx="147" cy="292" r="1.8"/>
+    <circle cx="177" cy="322" r="1.2"/>
+    <circle cx="207" cy="242" r="1.9"/>
+    <circle cx="237" cy="272" r="1.5"/>
+    <circle cx="267" cy="302" r="1.4"/>
+    <circle cx="297" cy="222" r="1.7"/>
+    <circle cx="327" cy="252" r="1.6"/>
+    <circle cx="357" cy="282" r="1.3"/>
+    <circle cx="387" cy="212" r="1.8"/>
+  </g>
+
+  <!-- Potential paths layer: 3 alternate spirals with small nodes -->
+  <g opacity="0.18">
+    <!-- Path 1 -->
+    <path d="M 200 200 Q 220 180 240 185 T 270 200 T 290 230 T 295 270"
+          stroke="#E07A5F" stroke-width="1" fill="none"/>
+    <circle cx="220" cy="180" r="2" fill="#E07A5F"/>
+    <circle cx="240" cy="185" r="2" fill="#E07A5F"/>
+    <circle cx="270" cy="200" r="2" fill="#E07A5F"/>
+    <circle cx="290" cy="230" r="2" fill="#E07A5F"/>
+
+    <!-- Path 2 -->
+    <path d="M 200 200 Q 190 220 185 250 T 195 290 T 220 315 T 255 325"
+          stroke="#E07A5F" stroke-width="1" fill="none"/>
+    <circle cx="190" cy="220" r="2" fill="#E07A5F"/>
+    <circle cx="185" cy="250" r="2" fill="#E07A5F"/>
+    <circle cx="195" cy="290" r="2" fill="#E07A5F"/>
+    <circle cx="220" cy="315" r="2" fill="#E07A5F"/>
+
+    <!-- Path 3 -->
+    <path d="M 200 200 Q 170 195 145 210 T 125 245 T 120 285 T 130 325"
+          stroke="#E07A5F" stroke-width="1" fill="none"/>
+    <circle cx="170" cy="195" r="2" fill="#E07A5F"/>
+    <circle cx="145" cy="210" r="2" fill="#E07A5F"/>
+    <circle cx="125" cy="245" r="2" fill="#E07A5F"/>
+    <circle cx="120" cy="285" r="2" fill="#E07A5F"/>
+  </g>
+
+  <!-- Main golden spiral path with glow -->
+  <g filter="url(#glow)">
+    <!-- Golden spiral following Fibonacci sequence -->
+    <path d="M 200 200
+             Q 210 190 220 190
+             Q 230 190 235 195
+             Q 240 200 240 210
+             Q 240 225 230 235
+             Q 215 245 200 245
+             Q 175 245 160 230
+             Q 145 215 145 190
+             Q 145 155 170 130
+             Q 195 105 230 105
+             Q 275 105 305 135
+             Q 335 165 335 210
+             Q 335 265 295 305
+             Q 255 345 200 345
+             Q 130 345 80 295
+             Q 30 245 30 175"
+          stroke="url(#spiralGradient)"
+          stroke-width="3"
+          fill="none"
+          filter="url(#inkWash)"/>
+
+    <!-- Flying white strokes at the end (calligraphy effect) -->
+    <path d="M 30 175 Q 25 165 22 155"
+          stroke="#E07A5F"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.6"/>
+    <path d="M 30 175 Q 28 185 27 195"
+          stroke="#E07A5F"
+          stroke-width="2"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.5"/>
+  </g>
+
+  <!-- Main path nodes (decreasing size along spiral) -->
+  <g fill="url(#spiralGradient)">
+    <circle cx="200" cy="200" r="5" opacity="0.95"/>
+    <circle cx="220" cy="190" r="4.5" opacity="0.93"/>
+    <circle cx="235" cy="195" r="4" opacity="0.91"/>
+    <circle cx="240" cy="210" r="3.8" opacity="0.89"/>
+    <circle cx="230" cy="235" r="3.5" opacity="0.87"/>
+    <circle cx="200" cy="245" r="3.2" opacity="0.85"/>
+    <circle cx="160" cy="230" r="3" opacity="0.83"/>
+    <circle cx="145" cy="190" r="2.8" opacity="0.81"/>
+    <circle cx="170" cy="130" r="2.5" opacity="0.79"/>
+    <circle cx="230" cy="105" r="2.3" opacity="0.77"/>
+    <circle cx="305" cy="135" r="2" opacity="0.75"/>
+    <circle cx="335" cy="210" r="1.8" opacity="0.73"/>
+    <circle cx="295" cy="305" r="1.5" opacity="0.71"/>
+    <circle cx="200" cy="345" r="1.3" opacity="0.69"/>
+    <circle cx="80" cy="295" r="1" opacity="0.67"/>
+  </g>
+</svg>

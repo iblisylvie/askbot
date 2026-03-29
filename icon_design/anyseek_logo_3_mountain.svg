@@ -1,0 +1,67 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pathGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E07A5F;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#E07A5F;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#E07A5F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景点阵：象征混沌/无序 -->
+  <g fill="#E07A5F" opacity="0.25">
+    <!-- 底部密集区 -->
+    <circle cx="20" cy="170" r="2"/>
+    <circle cx="35" cy="165" r="1.5"/>
+    <circle cx="50" cy="172" r="2"/>
+    <circle cx="65" cy="168" r="1.2"/>
+    <circle cx="80" cy="175" r="1.8"/>
+    <circle cx="100" cy="170" r="2"/>
+    <circle cx="120" cy="173" r="1.5"/>
+    <circle cx="140" cy="166" r="2"/>
+    <circle cx="155" cy="170" r="1.3"/>
+    <circle cx="170" cy="165" r="1.8"/>
+    <circle cx="185" cy="172" r="1.5"/>
+
+    <!-- 中部稀疏区 -->
+    <circle cx="30" cy="130" r="1.2"/>
+    <circle cx="55" cy="125" r="1"/>
+    <circle cx="145" cy="128" r="1.3"/>
+    <circle cx="170" cy="120" r="1"/>
+    <circle cx="25" cy="100" r="0.9"/>
+    <circle cx="175" cy="95" r="1"/>
+
+    <!-- 顶部散点 -->
+    <circle cx="40" cy="60" r="1"/>
+    <circle cx="160" cy="55" r="1.2"/>
+    <circle cx="100" cy="35" r="1"/>
+  </g>
+
+  <!-- 求索之路：一条蜿蜒上升的线条 -->
+  <!-- 从底部开始，曲折向上 -->
+  <path d="M 25 165
+           C 40 165, 45 140, 60 135
+           S 80 110, 70 100
+           S 55 80, 75 70
+           S 110 60, 105 45
+           S 95 25, 110 20"
+        fill="none"
+        stroke="url(#pathGrad)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- 路标/节点：求索过程中的发现 -->
+  <circle cx="60" cy="135" r="4" fill="#E07A5F" opacity="0.9"/>
+  <circle cx="70" cy="100" r="3.5" fill="#E07A5F" opacity="0.85"/>
+  <circle cx="75" cy="70" r="3" fill="#E07A5F" opacity="0.8"/>
+  <circle cx="105" cy="45" r="3.5" fill="#E07A5F" opacity="0.85"/>
+  <circle cx="110" cy="20" r="5" fill="#E07A5F" opacity="0.95"/>
+
+  <!-- 山的轮廓暗示 -->
+  <path d="M 0 180 L 40 140 L 80 150 L 120 130 L 160 145 L 200 125 L 200 200 L 0 200 Z"
+        fill="#E07A5F" opacity="0.08"/>
+
+  <!-- 远山轮廓线 -->
+  <path d="M 0 175 Q 50 145, 100 155 T 200 140"
+        fill="none" stroke="#E07A5F" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+</svg>

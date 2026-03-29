@@ -1,0 +1,184 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spiralGradV2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E07A5F;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#E07A5F;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#E07A5F;stop-opacity:0.95" />
+    </linearGradient>
+    <filter id="glowSpiralV2">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 混沌沙粒：均匀随机分布全图 -->
+  <g fill="#E07A5F">
+    <!-- 第1组：左边缘区域 -->
+    <circle cx="12" cy="30" r="1.4" opacity="0.32"/>
+    <circle cx="18" cy="55" r="1.2" opacity="0.28"/>
+    <circle cx="8" cy="80" r="1.3" opacity="0.31"/>
+    <circle cx="15" cy="105" r="1.1" opacity="0.27"/>
+    <circle cx="10" cy="130" r="1.2" opacity="0.29"/>
+    <circle cx="20" cy="155" r="1" opacity="0.25"/>
+    <circle cx="14" cy="178" r="1.1" opacity="0.26"/>
+
+    <!-- 第2组：左上区域 -->
+    <circle cx="38" cy="22" r="1.3" opacity="0.3"/>
+    <circle cx="55" cy="15" r="1.1" opacity="0.26"/>
+    <circle cx="45" cy="42" r="1.2" opacity="0.28"/>
+    <circle cx="62" cy="35" r="1" opacity="0.24"/>
+    <circle cx="35" cy="62" r="1.1" opacity="0.27"/>
+    <circle cx="58" cy="55" r="0.9" opacity="0.23"/>
+    <circle cx="42" cy="82" r="1.2" opacity="0.29"/>
+    <circle cx="28" cy="95" r="1" opacity="0.25"/>
+    <circle cx="52" cy="105" r="1.1" opacity="0.27"/>
+    <circle cx="32" cy="122" r="0.9" opacity="0.22"/>
+    <circle cx="48" cy="135" r="1.1" opacity="0.26"/>
+    <circle cx="38" cy="152" r="1" opacity="0.24"/>
+    <circle cx="55" cy="165" r="1.2" opacity="0.28"/>
+    <circle cx="45" cy="182" r="0.9" opacity="0.23"/>
+
+    <!-- 第3组：右上区域 -->
+    <circle cx="142" cy="18" r="1.3" opacity="0.3"/>
+    <circle cx="162" cy="25" r="1.2" opacity="0.28"/>
+    <circle cx="182" cy="20" r="1.4" opacity="0.33"/>
+    <circle cx="152" cy="42" r="1.1" opacity="0.26"/>
+    <circle cx="175" cy="38" r="1" opacity="0.24"/>
+    <circle cx="138" cy="55" r="1.2" opacity="0.29"/>
+    <circle cx="165" cy="52" r="0.9" opacity="0.23"/>
+    <circle cx="185" cy="48" r="1.1" opacity="0.27"/>
+    <circle cx="148" cy="72" r="1" opacity="0.25"/>
+    <circle cx="172" cy="68" r="1.2" opacity="0.28"/>
+    <circle cx="158" cy="88" r="0.9" opacity="0.22"/>
+    <circle cx="188" cy="82" r="1.1" opacity="0.26"/>
+    <circle cx="142" cy="102" r="1" opacity="0.24"/>
+    <circle cx="168" cy="95" r="1.2" opacity="0.28"/>
+
+    <!-- 第4组：右边缘区域 -->
+    <circle cx="188" cy="115" r="1.3" opacity="0.31"/>
+    <circle cx="192" cy="140" r="1.1" opacity="0.27"/>
+    <circle cx="185" cy="165" r="1.2" opacity="0.29"/>
+    <circle cx="178" cy="188" r="1" opacity="0.25"/>
+
+    <!-- 第5组：左下区域 -->
+    <circle cx="65" cy="175" r="1.2" opacity="0.28"/>
+    <circle cx="82" cy="185" r="1" opacity="0.24"/>
+    <circle cx="72" cy="158" r="1.1" opacity="0.26"/>
+    <circle cx="58" cy="142" r="0.9" opacity="0.23"/>
+    <circle cx="88" cy="148" r="1" opacity="0.25"/>
+    <circle cx="68" cy="128" r="1.1" opacity="0.27"/>
+    <circle cx="92" cy="118" r="0.9" opacity="0.22"/>
+    <circle cx="78" cy="138" r="1.2" opacity="0.29"/>
+
+    <!-- 第6组：右下区域 -->
+    <circle cx="128" cy="172" r="1.2" opacity="0.28"/>
+    <circle cx="148" cy="182" r="1.1" opacity="0.26"/>
+    <circle cx="168" cy="175" r="1.3" opacity="0.3"/>
+    <circle cx="138" cy="188" r="1" opacity="0.24"/>
+    <circle cx="158" cy="162" r="1.1" opacity="0.27"/>
+    <circle cx="182" cy="155" r="0.9" opacity="0.23"/>
+    <circle cx="148" cy="148" r="1.2" opacity="0.28"/>
+    <circle cx="172" cy="142" r="1" opacity="0.25"/>
+
+    <!-- 第7组：中心区域（关键：填充螺旋间的空隙） -->
+    <circle cx="85" cy="68" r="1.1" opacity="0.26"/>
+    <circle cx="115" cy="62" r="1.2" opacity="0.28"/>
+    <circle cx="95" cy="52" r="1" opacity="0.24"/>
+    <circle cx="125" cy="75" r="1.1" opacity="0.27"/>
+    <circle cx="105" cy="85" r="1.2" opacity="0.29"/>
+    <circle cx="135" cy="85" r="0.9" opacity="0.23"/>
+    <circle cx="75" cy="92" r="1" opacity="0.25"/>
+    <circle cx="88" cy="102" r="1.1" opacity="0.27"/>
+    <circle cx="118" cy="95" r="1" opacity="0.24"/>
+    <circle cx="128" cy="108" r="1.2" opacity="0.28"/>
+    <circle cx="98" cy="112" r="0.9" opacity="0.22"/>
+    <circle cx="112" cy="118" r="1.1" opacity="0.26"/>
+    <circle cx="142" cy="118" r="1" opacity="0.25"/>
+    <circle cx="82" cy="122" r="1.2" opacity="0.28"/>
+    <circle cx="105" cy="128" r="1" opacity="0.24"/>
+    <circle cx="125" cy="132" r="1.1" opacity="0.27"/>
+    <circle cx="92" cy="138" r="0.9" opacity="0.23"/>
+    <circle cx="115" cy="142" r="1.2" opacity="0.29"/>
+    <circle cx="135" cy="145" r="1" opacity="0.25"/>
+    <circle cx="108" cy="152" r="1.1" opacity="0.27"/>
+    <circle cx="88" cy="155" r="1" opacity="0.24"/>
+    <circle cx="122" cy="158" r="0.9" opacity="0.22"/>
+    <circle cx="102" cy="165" r="1.1" opacity="0.26"/>
+    <circle cx="95" cy="95" r="0.8" opacity="0.2"/>
+    <circle cx="108" cy="108" r="0.9" opacity="0.21"/>
+
+    <!-- 第8组：上方中间区域 -->
+    <circle cx="88" cy="35" r="1.1" opacity="0.28"/>
+    <circle cx="105" cy="28" r="1.2" opacity="0.3"/>
+    <circle cx="122" cy="32" r="1" opacity="0.25"/>
+    <circle cx="92" cy="48" r="0.9" opacity="0.24"/>
+    <circle cx="112" cy="42" r="1.1" opacity="0.27"/>
+    <circle cx="132" cy="48" r="1.2" opacity="0.29"/>
+    <circle cx="98" cy="22" r="1" opacity="0.26"/>
+    <circle cx="118" cy="25" r="0.9" opacity="0.23"/>
+    <circle cx="138" cy="38" r="1.1" opacity="0.28"/>
+    <circle cx="82" cy="28" r="0.9" opacity="0.22"/>
+    <circle cx="128" cy="22" r="1" opacity="0.25"/>
+    <circle cx="142" cy="28" r="1.2" opacity="0.3"/>
+    <circle cx="72" cy="42" r="1" opacity="0.24"/>
+    <circle cx="152" cy="45" r="0.9" opacity="0.23"/>
+    <circle cx="95" cy="38" r="1.1" opacity="0.27"/>
+  </g>
+
+  <!-- 其他潜在螺线（淡色） -->
+  <path d="M 165 125
+           C 155 105, 135 95, 120 100
+           S 100 120, 110 135
+           S 140 148, 155 138"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="1.5"
+        opacity="0.12"
+        stroke-linecap="round"/>
+
+  <path d="M 55 155
+           C 65 135, 90 125, 105 135
+           S 118 160, 102 168"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="1.5"
+        opacity="0.14"
+        stroke-linecap="round"/>
+
+  <path d="M 155 85
+           C 145 105, 125 115, 112 108
+           S 98 85, 108 72"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="1.5"
+        opacity="0.1"
+        stroke-linecap="round"/>
+
+  <!-- 主黄金螺线 -->
+  <g filter="url(#glowSpiralV2)">
+    <path d="M 160 160
+             C 160 120, 120 80, 80 80
+             S 20 120, 40 150
+             S 100 160, 110 130
+             S 85 95, 65 105
+             S 55 135, 75 140
+             S 95 125, 88 115
+             S 70 115, 75 125"
+          fill="none"
+          stroke="url(#spiralGradV2)"
+          stroke-width="4.5"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- 螺线路径上的节点 -->
+  <circle cx="160" cy="160" r="5" fill="#E07A5F" opacity="0.95"/>
+  <circle cx="80" cy="80" r="3.5" fill="#E07A5F" opacity="0.82"/>
+  <circle cx="40" cy="150" r="3" fill="#E07A5F" opacity="0.78"/>
+  <circle cx="110" cy="130" r="3.5" fill="#E07A5F" opacity="0.82"/>
+  <circle cx="65" cy="105" r="3" fill="#E07A5F" opacity="0.75"/>
+  <circle cx="75" cy="140" r="2.5" fill="#E07A5F" opacity="0.72"/>
+  <circle cx="75" cy="125" r="4" fill="#E07A5F" opacity="0.9"/>
+</svg>

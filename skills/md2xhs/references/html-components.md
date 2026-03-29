@@ -136,18 +136,45 @@ async function downloadCurrent() {
 ```html
 <div class="brand-tag on-dark">
   <svg viewBox="0 0 32 32" fill="none">
-    <circle cx="13" cy="16" r="10" stroke="rgba(255,255,255,0.45)" stroke-width="2.2" fill="none"/>
-    <ellipse cx="14" cy="17" rx="3.5" ry="2" fill="VAR_ACCENT"/>
-    <polygon points="10,17 7.5,14.5 7.5,19.5" fill="VAR_ACCENT"/>
-    <line x1="26" y1="4" x2="26" y2="16" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M26 16 Q26 22 22 22" stroke="rgba(255,255,255,0.45)" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <circle cx="26" cy="4" r="2" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" fill="none"/>
+    <defs>
+      <linearGradient id="spiralGradDark" x1="50%" y1="50%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:VAR_ACCENT"/>
+        <stop offset="100%" style="stop-color:VAR_ACCENT;stop-opacity:0.75"/>
+      </linearGradient>
+    </defs>
+    <path d="M 16 16 Q 17 15 18 15 Q 19 15 19.5 16 Q 20 17 19 18.5 Q 17.5 19.5 16 19.5 Q 13.5 19.5 12 18 Q 10.5 16.5 10.5 14 Q 10.5 11 12.5 9 Q 14.5 7 17.5 7 Q 21.5 7 24 9.5 Q 26.5 12 26.5 16 Q 26.5 21 23 24.5 Q 19 28 14 28"
+          stroke="url(#spiralGradDark)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="2" fill="VAR_ACCENT"/>
+    <circle cx="19" cy="18.5" r="1.2" fill="VAR_ACCENT" opacity="0.8"/>
+    <circle cx="12" cy="18" r="1" fill="VAR_ACCENT" opacity="0.7"/>
+    <circle cx="12.5" cy="9" r="0.8" fill="VAR_ACCENT" opacity="0.6"/>
+    <circle cx="24" cy="9.5" r="0.7" fill="VAR_ACCENT" opacity="0.5"/>
   </svg>
   <span>[品牌名]</span>
 </div>
 ```
 
-**浅底版（class="brand-tag on-light"）：** 将 `rgba(255,255,255,0.45)` 替换为 `rgba(26,51,40,0.35)`。
+**浅底版（class="brand-tag on-light"）：**
+```html
+<div class="brand-tag on-light">
+  <svg viewBox="0 0 32 32" fill="none">
+    <defs>
+      <linearGradient id="spiralGradLight" x1="50%" y1="50%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:VAR_ACCENT"/>
+        <stop offset="100%" style="stop-color:VAR_ACCENT;stop-opacity:0.75"/>
+      </linearGradient>
+    </defs>
+    <path d="M 16 16 Q 17 15 18 15 Q 19 15 19.5 16 Q 20 17 19 18.5 Q 17.5 19.5 16 19.5 Q 13.5 19.5 12 18 Q 10.5 16.5 10.5 14 Q 10.5 11 12.5 9 Q 14.5 7 17.5 7 Q 21.5 7 24 9.5 Q 26.5 12 26.5 16 Q 26.5 21 23 24.5 Q 19 28 14 28"
+          stroke="url(#spiralGradLight)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="16" cy="16" r="2" fill="VAR_ACCENT"/>
+    <circle cx="19" cy="18.5" r="1.2" fill="VAR_ACCENT" opacity="0.8"/>
+    <circle cx="12" cy="18" r="1" fill="VAR_ACCENT" opacity="0.7"/>
+    <circle cx="12.5" cy="9" r="0.8" fill="VAR_ACCENT" opacity="0.6"/>
+    <circle cx="24" cy="9.5" r="0.7" fill="VAR_ACCENT" opacity="0.5"/>
+  </svg>
+  <span>[品牌名]</span>
+</div>
+```
 
 > 如果品牌名为空，省略 `<span>` 标签。
 

@@ -16,8 +16,8 @@ description: >
 
 按优先级检查 EXTEND.md：
 ```bash
-test -f .baoyu-skills/md2xhs/EXTEND.md && echo "project"
-test -f "$HOME/.baoyu-skills/md2xhs/EXTEND.md" && echo "user"
+test -f .agents/skills/md2xhs/EXTEND.md && echo "project"
+test -f "$HOME/.agents/skills/md2xhs/EXTEND.md" && echo "user"
 ```
 
 找到则读取；未找到则使用默认品牌色（见下方默认值）。

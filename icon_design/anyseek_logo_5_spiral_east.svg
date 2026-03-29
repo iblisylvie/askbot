@@ -1,0 +1,192 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="spiralGradV3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E07A5F;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#E07A5F;stop-opacity:0.75" />
+      <stop offset="100%" style="stop-color:#E07A5F;stop-opacity:0.4" />
+    </linearGradient>
+    <filter id="inkGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feOffset in="blur" dx="0.5" dy="0.5" result="offsetBlur"/>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 混沌沙粒：均匀随机分布全图 -->
+  <g fill="#E07A5F">
+    <!-- 边缘及四角 -->
+    <circle cx="18" cy="28" r="1.4" opacity="0.32"/>
+    <circle cx="35" cy="18" r="1.2" opacity="0.28"/>
+    <circle cx="12" cy="55" r="1.3" opacity="0.31"/>
+    <circle cx="45" cy="35" r="1.1" opacity="0.26"/>
+    <circle cx="22" cy="82" r="1.2" opacity="0.29"/>
+    <circle cx="52" cy="68" r="1" opacity="0.24"/>
+    <circle cx="15" cy="108" r="1.3" opacity="0.3"/>
+    <circle cx="48" cy="95" r="1.1" opacity="0.27"/>
+    <circle cx="28" cy="128" r="1.2" opacity="0.28"/>
+    <circle cx="58" cy="115" r="1" opacity="0.25"/>
+    <circle cx="20" cy="148" r="1.3" opacity="0.31"/>
+    <circle cx="55" cy="135" r="1.1" opacity="0.27"/>
+    <circle cx="32" cy="168" r="1.2" opacity="0.29"/>
+    <circle cx="65" cy="155" r="1" opacity="0.24"/>
+    <circle cx="42" cy="185" r="1.1" opacity="0.26"/>
+
+    <circle cx="152" cy="22" r="1.4" opacity="0.33"/>
+    <circle cx="175" cy="32" r="1.2" opacity="0.29"/>
+    <circle cx="188" cy="18" r="1.3" opacity="0.31"/>
+    <circle cx="142" cy="48" r="1.1" opacity="0.27"/>
+    <circle cx="168" cy="58" r="1.2" opacity="0.28"/>
+    <circle cx="185" cy="45" r="1" opacity="0.24"/>
+    <circle cx="158" cy="75" r="1.3" opacity="0.3"/>
+    <circle cx="182" cy="68" r="1.1" opacity="0.26"/>
+    <circle cx="148" cy="98" r="1.2" opacity="0.28"/>
+    <circle cx="175" cy="88" r="1" opacity="0.25"/>
+    <circle cx="188" cy="85" r="1.3" opacity="0.31"/>
+    <circle cx="155" cy="118" r="1.1" opacity="0.27"/>
+    <circle cx="178" cy="108" r="1.2" opacity="0.29"/>
+    <circle cx="148" cy="138" r="1" opacity="0.24"/>
+    <circle cx="168" cy="128" r="1.1" opacity="0.26"/>
+    <circle cx="182" cy="122" r="1.2" opacity="0.28"/>
+    <circle cx="158" cy="152" r="1" opacity="0.25"/>
+    <circle cx="175" cy="148" r="1.1" opacity="0.27"/>
+    <circle cx="188" cy="158" r="1.2" opacity="0.29"/>
+    <circle cx="165" cy="172" r="1" opacity="0.24"/>
+    <circle cx="182" cy="182" r="1.1" opacity="0.26"/>
+
+    <circle cx="72" cy="175" r="1.2" opacity="0.28"/>
+    <circle cx="95" cy="185" r="1.3" opacity="0.3"/>
+    <circle cx="118" cy="178" r="1.1" opacity="0.27"/>
+    <circle cx="138" cy="168" r="1.2" opacity="0.29"/>
+    <circle cx="88" cy="165" r="1" opacity="0.25"/>
+    <circle cx="108" cy="172" r="1.1" opacity="0.26"/>
+    <circle cx="128" cy="162" r="1" opacity="0.24"/>
+
+    <!-- 中心区域 -->
+    <circle cx="82" cy="58" r="1.1" opacity="0.27"/>
+    <circle cx="105" cy="48" r="1.2" opacity="0.29"/>
+    <circle cx="125" cy="55" r="1" opacity="0.24"/>
+    <circle cx="92" cy="75" r="1.1" opacity="0.26"/>
+    <circle cx="115" cy="68" r="1.2" opacity="0.28"/>
+    <circle cx="135" cy="72" r="1" opacity="0.25"/>
+    <circle cx="75" cy="88" r="1.1" opacity="0.27"/>
+    <circle cx="95" cy="85" r="1" opacity="0.24"/>
+    <circle cx="118" cy="82" r="1.2" opacity="0.28"/>
+    <circle cx="138" cy="88" r="1.1" opacity="0.26"/>
+    <circle cx="85" cy="105" r="1" opacity="0.25"/>
+    <circle cx="108" cy="102" r="1.1" opacity="0.27"/>
+    <circle cx="128" cy="95" r="1.2" opacity="0.29"/>
+    <circle cx="145" cy="105" r="1" opacity="0.24"/>
+    <circle cx="92" cy="118" r="1.1" opacity="0.26"/>
+    <circle cx="115" cy="115" r="1" opacity="0.25"/>
+    <circle cx="135" cy="112" r="1.2" opacity="0.28"/>
+    <circle cx="155" cy="118" r="1.1" opacity="0.26"/>
+    <circle cx="105" cy="128" r="1" opacity="0.24"/>
+    <circle cx="125" cy="125" r="1.1" opacity="0.27"/>
+    <circle cx="142" cy="132" r="1.2" opacity="0.29"/>
+    <circle cx="88" cy="138" r="1.1" opacity="0.26"/>
+    <circle cx="112" cy="142" r="1" opacity="0.24"/>
+    <circle cx="132" cy="138" r="1.1" opacity="0.27"/>
+    <circle cx="148" cy="145" r="1" opacity="0.25"/>
+    <circle cx="95" cy="152" r="1.2" opacity="0.28"/>
+    <circle cx="118" cy="155" r="1.1" opacity="0.26"/>
+    <circle cx="138" cy="152" r="1" opacity="0.24"/>
+    <circle cx="102" cy="95" r="0.9" opacity="0.22"/>
+    <circle cx="122" cy="108" r="0.8" opacity="0.2"/>
+  </g>
+
+  <!-- 其他潜在螺线（3条，带节点） -->
+  <path d="M 45 145
+           C 55 125, 80 115, 95 125
+           S 108 150, 92 158"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="2"
+        opacity="0.22"
+        stroke-linecap="round"/>
+  <circle cx="95" cy="125" r="2" fill="#E07A5F" opacity="0.35"/>
+  <circle cx="92" cy="158" r="1.5" fill="#E07A5F" opacity="0.3"/>
+
+  <path d="M 155 140
+           C 145 120, 125 110, 112 118
+           S 98 145, 108 160"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="2"
+        opacity="0.2"
+        stroke-linecap="round"/>
+  <circle cx="112" cy="118" r="2" fill="#E07A5F" opacity="0.32"/>
+  <circle cx="108" cy="160" r="1.5" fill="#E07A5F" opacity="0.28"/>
+
+  <path d="M 145 55
+           C 135 75, 115 85, 102 78
+           S 88 52, 98 40"
+        fill="none"
+        stroke="#E07A5F"
+        stroke-width="2"
+        opacity="0.18"
+        stroke-linecap="round"/>
+  <circle cx="102" cy="78" r="2" fill="#E07A5F" opacity="0.3"/>
+  <circle cx="98" cy="40" r="1.5" fill="#E07A5F" opacity="0.25"/>
+
+  <!-- 主螺线：向外求索（从内向外），东方书法意境 -->
+  <g filter="url(#softGlow)">
+    <!-- 主体：由内向外螺旋 -->
+    <path d="M 75 125
+             C 55 125, 50 105, 60 90
+             S 90 75, 105 85
+             S 125 115, 110 135
+             S 70 145, 50 125
+             S 35 75, 60 50
+             S 115 35, 145 60
+             S 170 115, 145 145
+             S 85 170, 45 145"
+          fill="none"
+          stroke="url(#spiralGradV3)"
+          stroke-width="5"
+          stroke-linecap="round"/>
+
+    <!-- 东方意境：飞白收笔，减至2道，似墨迹飘洒 -->
+    <path d="M 45 145
+             Q 32 152, 22 158
+             M 45 145
+             Q 35 162, 28 172"
+          fill="none"
+          stroke="#E07A5F"
+          stroke-width="1.5"
+          opacity="0.45"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- 节点：仍在路上 -->
+  <!-- 起点：最大最浓（墨点晕染感） -->
+  <g filter="url(#inkGlow)">
+    <circle cx="75" cy="125" r="8" fill="#E07A5F" opacity="0.9"/>
+    <circle cx="75" cy="125" r="5" fill="#E07A5F" opacity="0.6"/>
+  </g>
+
+  <!-- 途中节点：渐小渐淡 -->
+  <circle cx="60" cy="90" r="4" fill="#E07A5F" opacity="0.82"/>
+  <circle cx="105" cy="85" r="3.5" fill="#E07A5F" opacity="0.78"/>
+  <circle cx="110" cy="135" r="3" fill="#E07A5F" opacity="0.72"/>
+  <circle cx="60" cy="50" r="2.8" fill="#E07A5F" opacity="0.68"/>
+  <circle cx="145" cy="60" r="2.5" fill="#E07A5F" opacity="0.65"/>
+  <circle cx="145" cy="145" r="2" fill="#E07A5F" opacity="0.55"/>
+
+  <!-- 终点：小而开放，暗示仍在继续 -->
+  <circle cx="45" cy="145" r="1.8" fill="#E07A5F" opacity="0.45"/>
+
+  <!-- 东方意境：点缀的小墨点 -->
+  <circle cx="28" cy="165" r="1.2" fill="#E07A5F" opacity="0.35"/>
+  <circle cx="32" cy="170" r="0.9" fill="#E07A5F" opacity="0.28"/>
+  <circle cx="22" cy="158" r="1" fill="#E07A5F" opacity="0.25"/>
+</svg>
