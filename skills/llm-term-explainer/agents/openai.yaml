@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM术语解释器"
+  short_description: "用生活化比喻和八维拆解为文科生讲清并解释LLM技术名词"
+  default_prompt: "请用文科生能听懂的方式解释一个LLM技术概念，按8维拆解并给出比喻、代价与边界。"
