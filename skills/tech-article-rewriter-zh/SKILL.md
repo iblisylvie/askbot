@@ -1,7 +1,11 @@
 ---
 name: tech-article-rewriter-zh
 description: |
-  改写中文技术文章、AI 周刊、产业观察稿和技术宣发稿。适用于用户要求“去掉模板感”“去说教味”“更像作者写的”“以事实为主，观点为辅”“尊重原文，不要杜撰”时。也适用于把内部素材稿、信息整理稿改成可直接对外发布的版本。
+  改写中文技术文章、AI 周刊、产业观察稿和技术宣发稿。适用于用户要求”去掉模板感””去说教味””更像作者写的””以事实为主，观点为辅””尊重原文，不要杜撰”时。也适用于把内部素材稿、信息整理稿改成可直接对外发布的版本。
+  
+  **使用方式：**
+  - `/tech-article-rewriter-zh <输入文件>` —— 改写并保存到 `<原文件名>_rewritten.md`
+  - `/tech-article-rewriter-zh <输入文件> -o <输出文件>` 或 `--output <输出文件>` —— 改写并保存到指定路径
 ---
 
 # Tech Article Rewriter ZH
@@ -14,6 +18,25 @@ description: |
 - 产品发布解读、工具盘点、技术趋势总结
 - 内部整理稿改成对外宣发稿
 - 用户明确要求：去模板感、去说教味、增加真实观点、提高信息密度、尊重原文、不许杜撰
+
+## 如何使用
+
+### 基本用法
+直接传入输入文件路径，改写后的内容将保存为 `<原文件名>_rewritten.md`：
+```
+/tech-article-rewriter-zh /path/to/article.md
+```
+
+### 指定输出路径
+使用 `-o` 或 `--output` 参数指定输出文件路径：
+```
+/tech-article-rewriter-zh /path/to/article.md -o /path/to/output.md
+/tech-article-rewriter-zh /path/to/article.md --output /path/to/output.md
+```
+
+如果用户没有指定输出路径，默认保存到 `<原文件名>_rewritten.md`。
+
+---
 
 ## 改写目标
 
@@ -161,6 +184,19 @@ description: |
 3. 有没有事实不足却下了很满的判断
 4. 有没有重复表达同一个意思
 5. 有没有把“信息整理稿”改成了真正可对外发布的文章
+
+## 输出文件处理
+
+改写完成后，按以下规则确定输出路径：
+
+1. **用户指定了 `-o` 或 `--output` 参数**：直接使用用户提供的输出路径
+2. **用户未指定输出路径**：生成默认输出文件名 `<原文件名>_rewritten.md`，与原文件同目录
+
+保存前告知用户输出路径，例如：
+- "改写完成。文件已保存至 `/path/to/article_rewritten.md`"
+- "改写完成。文件已保存至 `/custom/output/path.md`"
+
+---
 
 ## 需要 prompt 时
 

@@ -1,9 +1,9 @@
 ---
-name: transcript-splitter
+name: transcript-to-sessions
 description: 处理讯飞语音转写文本，自动识别主持人、按session拆分会议内容并生成结构化markdown素材。当用户需要处理会议录音转写文件、将长文本按主题分段、提取演讲内容时，必须使用此skill。
 ---
 
-# Transcript Splitter
+# Transcript To Sessions
 
 处理讯飞语音转写文本，自动识别主持人、按session拆分会议内容并生成结构化markdown素材。
 
@@ -26,19 +26,19 @@ description: 处理讯飞语音转写文本，自动识别主持人、按session
 ### 基础用法
 
 ```
-/transcript-splitter /path/to/转写文件.txt
+/transcript-to-sessions /path/to/转写文件.txt
 ```
 
 ### 指定输出目录
 
 ```
-/transcript-splitter /path/to/转写文件.txt -o ./my-output
+/transcript-to-sessions /path/to/转写文件.txt -o ./my-output
 ```
 
 ### 禁用LLM标题生成（使用自动提取）
 
 ```
-/transcript-splitter /path/to/转写文件.txt --use_llm=false
+/transcript-to-sessions /path/to/转写文件.txt --use_llm=false
 ```
 
 ## 环境配置
@@ -46,7 +46,7 @@ description: 处理讯飞语音转写文本，自动识别主持人、按session
 首次使用需要配置API密钥（用于LLM标题生成）：
 
 ```bash
-cd ~/.agents/skills/transcript-splitter
+cd ~/.agents/skills/transcript-to-sessions
 cp .env.example .env
 # 编辑 .env 填入你的API密钥
 ```
