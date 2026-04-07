@@ -1,0 +1,81 @@
+{
+  "skill_name": "content-summarizer",
+  "evals": [
+    {
+      "id": 1,
+      "name": "podcast-interview-summary",
+      "prompt": "帮我生成这个播客访谈的摘要和解读：/root/askbot/anything2post/Anything2Ontology/20260402-130209-bilibili_张晓珺对谢赛宁的7小时马拉松访谈/input/bilibili_张晓珺对谢赛宁的7小时马拉松访谈.md。这是一个7小时的深度访谈，嘉宾谢赛宁是AI研究员，刚和图灵奖得主杨立昆创业。请用分块-提取-组装的方法论，生成结构化摘要，包含核心观点、关键引用、背景解读。",
+      "expected_output": "结构化Markdown摘要，包含：TL;DR、核心论点（3-5个主题）、关键引用、背景解读、待解答问题",
+      "files": ["/root/askbot/anything2post/Anything2Ontology/20260402-130209-bilibili_张晓珺对谢赛宁的7小时马拉松访谈/input/bilibili_张晓珺对谢赛宁的7小时马拉松访谈.md"],
+      "assertions": [
+        {
+          "name": "has_tldr_section",
+          "description": "Summary includes TL;DR section at the beginning",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "TL;DR"
+        },
+        {
+          "name": "has_core_arguments",
+          "description": "Summary includes Core Arguments section with multiple themes",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "核心论点"
+        },
+        {
+          "name": "has_quotes",
+          "description": "Summary includes actual quotes from the interview",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "\">"
+        },
+        {
+          "name": "has_interpretation",
+          "description": "Summary includes interpretation/analysis section",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "解读"
+        },
+        {
+          "name": "covers_key_topics",
+          "description": "Summary mentions key topics like world models, OpenAI, Yann LeCun, AMI Labs",
+          "check": "file_contains_any",
+          "target": "output.md",
+          "value": ["世界模型", "杨立昆", "LeCun", "OpenAI", "AMI", "Ilya"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "technical-paper-summary",
+      "prompt": "请帮我生成这篇技术博客的摘要：https://www.anthropic.com/research/constitutional-classification",
+      "expected_output": "结构化Markdown摘要，包含研究问题、方法、关键发现、意义解读",
+      "files": [],
+      "assertions": [
+        {
+          "name": "has_structure",
+          "description": "Output follows the structured format defined in skill",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "核心论点"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "quick-summary-mode",
+      "prompt": "快速帮我总结一下这个播客的核心观点：/root/askbot/anything2post/Anything2Ontology/20260402-130209-bilibili_张晓珺对谢赛宁的7小时马拉松访谈/input/bilibili_张晓珺对谢赛宁的7小时马拉松访谈.md",
+      "expected_output": "简短的TL;DR + 核心论点，不包含详细解读",
+      "files": ["/root/askbot/anything2post/Anything2Ontology/20260402-130209-bilibili_张晓珺对谢赛宁的7小时马拉松访谈/input/bilibili_张晓珺对谢赛宁的7小时马拉松访谈.md"],
+      "assertions": [
+        {
+          "name": "has_brief_tldr",
+          "description": "Quick summary has TL;DR section",
+          "check": "file_contains",
+          "target": "output.md",
+          "value": "TL;DR"
+        }
+      ]
+    }
+  ]
+}
