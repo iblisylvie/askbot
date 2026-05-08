@@ -1,0 +1,81 @@
+{
+  "skill_name": "weekly-honest-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我写一下本周的复盘，要诚实一点的",
+      "expected_output": "生成对内复盘和对外周记两份 Markdown 文件。对内复盘包含：一句话总结、时间分配、关键决策、完成与未完成（重点列出未完成项并分析原因）、情绪波动、核心反思（至少2条做得差的部分）、下周聚焦。对外周记包含3-5个话题，隐去敏感信息。",
+      "files": [],
+      "assertions": [
+        {
+          "name": "dual_outputs_exist",
+          "description": "同时生成了对内复盘和对外周记两份输出"
+        },
+        {
+          "name": "internal_has_key_sections",
+          "description": "对内复盘包含：一句话总结、时间分配、关键决策、完成与未完成、核心反思、下周聚焦"
+        },
+        {
+          "name": "honesty_check",
+          "description": "核心反思中至少包含2条'做得差'的诚实自我批评"
+        },
+        {
+          "name": "public_has_3_to_5_topics",
+          "description": "对外周记包含3-5个话题"
+        },
+        {
+          "name": "public_no_sensitive_info",
+          "description": "对外周记中没有泄露具体金额、真实人名、未公开项目细节等敏感信息"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "这周过得有点浑浑噩噩，帮我看看这周到底干了什么",
+      "expected_output": "即使本周没有明显成果，复盘也要诚实指出'这周很虚'，列出时间浪费在哪些地方，分析浑浑噩噩的原因（是目标不清？还是拖延？），不要为空洞的一周找借口。",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no_sugarcoating",
+          "description": "没有为空洞的一周找借口或过度美化"
+        },
+        {
+          "name": "identifies_time_waste",
+          "description": "明确指出了时间浪费在哪些地方"
+        },
+        {
+          "name": "root_cause_analysis",
+          "description": "分析了浑浑噩噩的深层原因"
+        },
+        {
+          "name": "actionable_next_week",
+          "description": "下周聚焦给出了具体可执行的方向"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "写一份可以发朋友圈的周记，总结一下这周",
+      "expected_output": "主要生成对外周记，包含3-5个有分享价值的话题，每个话题200-500字。严格脱敏：隐去具体金额、未公开项目细节、真实人名、公司名等敏感信息。语气适合公开发布。",
+      "files": [],
+      "assertions": [
+        {
+          "name": "public_focused_output",
+          "description": "输出以对外周记为主，而非长篇对内复盘"
+        },
+        {
+          "name": "has_3_to_5_topics",
+          "description": "包含3-5个话题"
+        },
+        {
+          "name": "no_sensitive_info",
+          "description": "没有泄露具体金额、真实人名、公司名、未公开项目细节"
+        },
+        {
+          "name": "shareable_value",
+          "description": "话题对读者有启发或参考价值，不是流水账"
+        }
+      ]
+    }
+  ]
+}

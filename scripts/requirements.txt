@@ -1,2 +1,10 @@
 weasyprint==68.1
 markdown==3.10.2
+httpx
+requests
+PyPDF2
+python-dotenv
+opencv-python
+paddlepaddle
+paddleocr
+numpy

@@ -23,6 +23,13 @@ This skill uses a **three-phase pipeline** inspired by knowledge management syst
 
 ## Workflow
 
+### Phase 0: Input Preprocessing (if needed)
+
+Before chunking, check the input format:
+
+- **If the input is a PDF file**: Run `/root/askbot/scripts/pdf2md.py <pdf-path>` to convert it to markdown first. Use the resulting markdown as the input for Phase 1.
+- **If the input is already text/markdown**: Proceed directly to Phase 1.
+
 ### Phase 1: Chunking
 
 **Goal**: Split input into manageable, semantically coherent segments.
@@ -93,6 +100,16 @@ This skill uses a **three-phase pipeline** inspired by knowledge management syst
 - Concepts: [technical terms, theories, frameworks]
 - Books/Resources: [specific titles mentioned]
 - Events: [specific events referenced]
+
+### Charts & Visuals (if present in chunk)
+- **Title/Description**: [what the chart shows]
+- **Type**: [bar/line/pie/table/flowchart/diagram/etc.]
+- **Source Location**: [e.g., "Figure 3", "Table 2", "page 15" — MUST preserve the original identifier]
+- **Key Data Points**: [the most important numbers, trends, or comparisons]
+- **Why It Matters**: [what conclusion or insight this chart supports]
+- **Has Image Embed?**: [YES / NO — be explicit. Some figures (e.g., text-based tables, inline ASCII charts) have a caption but no `![](path)` image in the source]
+- **Original Image Embed**: [if YES, copy-paste the EXACT `![](path)` markdown here, character-for-character. Do NOT retype or paraphrase the path. Do NOT summarize. If NO, write "NONE"]
+- **Suggested Usage**: [should this be preserved as a reference, or summarized in text?]
 
 ### Personal Journey Elements
 - Background: [early life, education, formative experiences]
@@ -173,6 +190,13 @@ Create the final output with this structure:
 
 ## Core Arguments
 
+**Inline Visuals**: When a figure, chart, table, or diagram directly supports a specific argument, **embed it inline within that argument's section** rather than isolating it in a separate gallery. Place the image near the text that references it, so the visual evidence and its explanation form a coherent paragraph.
+
+**Image Path Rules (critical for accuracy):**
+1. **Only embed `![](path)` if the source explicitly contained an image for this figure** (extraction field "Has Image Embed?" = YES). Text-only figures MUST NOT receive a fabricated image embed.
+2. **Copy-paste the path exactly** from the extraction field "Original Image Embed". Never retype, abbreviate, or "fix" the path. A single character difference breaks the image.
+3. **After assembly, verify**: no two distinct figures share the same `![](path)`. If they do, you misassigned an image — trace back to the extraction notes and correct it.
+
 ### 1. [Theme Name]
 [2-3 sentence synthesis of this theme across all relevant chunks]
 
@@ -180,12 +204,51 @@ Create the final output with this structure:
 - Point from chunk X
 - Point from chunk Y
 - Quote: "..." (Speaker)
+- **Visual evidence** (if relevant): If a figure/table from the source directly illustrates this theme, embed it here with a brief caption explaining what it shows and why it matters for this argument. Preserve original `![](path)` image links for markdown sources.
 
 ### 2. [Theme Name]
 ...
 
 ### 3. [Theme Name]
 ...
+
+## Key Data & Visuals (Optional Fallback)
+
+**Prefer inline embedding**: Charts, graphs, tables, diagrams, and figures should first be embedded within the Core Arguments or other relevant sections where they provide direct evidence (see "Inline Visuals" guidance above).
+
+**Use this section only for**: Visuals that do not have a natural thematic home, or for a concise index/overview of all significant figures when the source contains many visuals.
+
+For visuals placed here, produce an entry following this format:
+
+```markdown
+**[Original Identifier]**: [brief description of what it shows]
+- **Location**: [Figure X / Table Y / page N]
+- **Key Evidence**: [the most important numbers, trends, or comparisons in 2-3 sentences]
+- **Why It Matters**: [what conclusion or insight this visual supports]
+```
+
+**For PDF inputs specifically**:
+- Preserve the original figure/table numbering (e.g., "Figure 1", "Table 3") so readers can locate it in the source document
+- If the PDF page was visible, include the page number in parentheses: "(see original Figure 3, page 15)"
+- If a chart is the densest or most persuasive piece of evidence for a claim, do not skip it. Either preserve a reference or describe its conclusion in the relevant theme section
+
+**For Markdown inputs specifically**:
+- If the source contains `![](path)` image embeds (e.g., `![](images/figure1.png)`), **preserve the original markdown image syntax in the summary output** whenever the image path remains valid (e.g., summary is saved in the same directory as the source)
+- Do NOT strip out image links and replace them with plain text descriptions. Keep the image embed so the summary remains visually inspectable
+- **Do NOT invent image embeds for text-only figures**. If a figure caption exists but the source has no `![](...)` nearby, describe the figure in text/italics instead of fabricating an image link.
+- **Copy-paste paths character-for-character** from the source. Never retype long hash-based filenames from memory.
+- If the summary is saved to a different directory and paths would break, either: (a) copy the image files alongside the summary, or (b) update the relative paths, or (c) preserve the image link and note the path may need adjustment
+
+**Option A - Preserve Original Reference** (when the image is accessible and adds significant value):
+- Include a brief description of what the chart shows
+- Reference the original chart location explicitly (e.g., "see original Figure 3")
+- For markdown sources, keep the `![](path)` embed in the output
+- Note the key takeaway in 1-2 sentences
+
+**Option B - Textual Redescription** (when the image is not accessible, or the data is more important than the visual):
+- Describe the core comparison, trend, or distribution in words
+- Include the most important specific numbers or percentages
+- Explain why this data point matters in context
 
 ## Methodology & Philosophy (if applicable)
 [How they approach their work - often the most valuable insight]
@@ -277,6 +340,10 @@ Before delivering the final summary, verify:
 - [ ] **Personal journey**: For interviews/profiles, is the subject's background and formation covered?
 - [ ] **Key relationships**: Are important people (mentors, collaborators, influences) identified and their impact explained?
 - [ ] **Methodology**: Is there a section explaining HOW they work, not just WHAT they found?
+- [ ] **Charts & visuals — integrated inline**: Are figures, charts, and tables embedded within the relevant Core Arguments or sections where they provide direct evidence, rather than isolated in a separate gallery? Each visual should appear near the text that discusses it.
+- [ ] **Image embeds preserved**: If the source is markdown and contains `![](path)` image links, are those image embeds preserved in the summary output (not stripped to plain text)?
+- [ ] **No fabricated images**: Text-only figures (those without `![](...)` in the source) do NOT have image embeds invented for them.
+- [ ] **Image paths exact**: Every `![](path)` in the output is a character-perfect copy from the source. No typos in long hash filenames. No two distinct figures share the same path unless the source also does.
 
 ### Specificity & Detail
 - [ ] **Accuracy**: Are quotes exact? Are attributions correct?
@@ -296,6 +363,9 @@ Before delivering the final summary, verify:
 - [ ] Did we extract specific quotes (not just paraphrases)?
 - [ ] Did we note the books/thinkers they reference?
 - [ ] Did we identify what questions remain unanswered?
+- [ ] Did we preserve original figure/table identifiers (Figure X, Table Y, page N) for all significant visuals, especially from PDFs?
+- [ ] Did we preserve original markdown image embeds (`![](path)`) in the summary output when the source is markdown? Do not strip image links to plain text.
+- [ ] Did we embed visuals **inline within the relevant arguments/sections** rather than dumping them all into an isolated "Key Data & Visuals" gallery? Each figure should appear where it is discussed.
 
 ## Example
 
@@ -321,6 +391,7 @@ Before delivering the final summary, verify:
 - **Timestamps**: For podcasts/videos, preserve timestamps when available for easy reference
 - **Speaker identification**: For interviews, clearly attribute quotes to speakers
 - **Confidence levels**: Mark uncertain attributions or unclear audio with [unclear] or [paraphrased]
+- **Charts and data visuals — embed inline**: Place visuals within the Core Arguments or relevant sections where they provide direct evidence, rather than isolating them in a separate gallery. A figure about architecture should appear in the architecture argument; a performance chart should appear where performance is discussed. Only use a standalone "Key Data & Visuals" section as a fallback for visuals without a natural thematic home. Do not silently omit high-density visual evidence. **For PDFs: always preserve the original figure/table number (e.g., "Figure 1", "Table 3") and page location so the reference remains traceable to the source document.**
 
 ## Common Omissions to Avoid
 
