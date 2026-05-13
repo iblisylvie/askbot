@@ -17,12 +17,17 @@ This directory contains the brand logo design assets for **anyseek** - an AI/edu
 2. **Potential Paths (淡线)**: 3 alternate spiral paths with small nodes, opacity 0.15-0.22
 3. **Main Path (主线)**: Golden spiral with gradient nodes, opacity 0.9+
 
-### Final Logo
-`anyseek_logo_5_spiral_east.svg` - The approved final version featuring:
-- Golden spiral growing outward (早期探索)
-- Ink wash aesthetic (东方水墨意境)
-- Two calligraphy "flying white" strokes at the end (飞白收笔)
-- Nautilus shell inspiration (鹦鹉螺意象)
+### Final Logo (v2, 2026-05-13)
+`anyseek_logo_v2_20260513.svg` — Concept: **Emergence（涌现）**
+- Mathematically rigorous logarithmic spiral (r = a·e^(0.28·θ), ~2 turns)
+- Golden spiral growing outward from center
+- Open endpoint with halo ring (仍在求索)
+- Sparse chaos point field as background texture
+- 5 gradient nodes along the spiral marking accumulated discovery
+
+**Full asset suite**: see [README.md](README.md). Variants: main / compact / mark / mini / mono_black / mono_white / horizontal lockup.
+
+**v1 (deprecated)**: `anyseek_logo_5_spiral_east.svg` — earlier ink-wash + flying-white version. Retired due to concept overload and poor scalability at small sizes.
 
 ## File Naming Convention
 

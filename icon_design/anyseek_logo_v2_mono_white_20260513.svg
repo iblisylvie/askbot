@@ -1,0 +1,64 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <title>anyseek — monochrome white (for dark backgrounds)</title>
+  <desc>White-on-dark variant. Includes a dark preview rect; remove for production overlay.</desc>
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="92" y1="94" x2="153.55" y2="94">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="60%"  stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <!-- preview-only dark background; remove when compositing on real dark surface -->
+  <rect width="200" height="200" fill="#1A1A1A"/>
+  <g fill="#FFFFFF">
+    <circle cx="28"  cy="18"  r="1.2" opacity="0.20"/>
+    <circle cx="52"  cy="14"  r="1.0" opacity="0.18"/>
+    <circle cx="75"  cy="22"  r="1.3" opacity="0.22"/>
+    <circle cx="105" cy="16"  r="1.0" opacity="0.18"/>
+    <circle cx="130" cy="25"  r="1.2" opacity="0.20"/>
+    <circle cx="155" cy="14"  r="1.1" opacity="0.19"/>
+    <circle cx="178" cy="22"  r="1.0" opacity="0.18"/>
+    <circle cx="18"  cy="55"  r="1.1" opacity="0.19"/>
+    <circle cx="14"  cy="85"  r="1.0" opacity="0.18"/>
+    <circle cx="22"  cy="110" r="1.2" opacity="0.20"/>
+    <circle cx="14"  cy="130" r="1.0" opacity="0.18"/>
+    <circle cx="184" cy="55"  r="1.1" opacity="0.19"/>
+    <circle cx="178" cy="82"  r="1.0" opacity="0.18"/>
+    <circle cx="186" cy="108" r="1.2" opacity="0.20"/>
+    <circle cx="175" cy="135" r="1.0" opacity="0.18"/>
+    <circle cx="16"  cy="165" r="1.3" opacity="0.22"/>
+    <circle cx="35"  cy="176" r="1.0" opacity="0.18"/>
+    <circle cx="52"  cy="158" r="1.1" opacity="0.19"/>
+    <circle cx="28"  cy="148" r="1.2" opacity="0.20"/>
+    <circle cx="165" cy="168" r="1.1" opacity="0.19"/>
+    <circle cx="180" cy="158" r="1.3" opacity="0.22"/>
+    <circle cx="155" cy="172" r="1.0" opacity="0.18"/>
+    <circle cx="175" cy="178" r="1.2" opacity="0.20"/>
+    <circle cx="140" cy="178" r="1.0" opacity="0.18"/>
+    <circle cx="40"  cy="40"  r="0.9" opacity="0.13"/>
+    <circle cx="160" cy="40"  r="0.8" opacity="0.12"/>
+    <circle cx="45"  cy="60"  r="0.7" opacity="0.10"/>
+    <circle cx="170" cy="65"  r="0.9" opacity="0.13"/>
+    <circle cx="10"  cy="35"  r="0.8" opacity="0.12"/>
+    <circle cx="186" cy="140" r="0.9" opacity="0.13"/>
+    <circle cx="95"  cy="10"  r="0.8" opacity="0.12"/>
+    <circle cx="60"  cy="184" r="0.9" opacity="0.13"/>
+  </g>
+  <path d="M 92.00 94.00
+           L 92.02 92.90 L 91.43 91.77 L 90.22 90.97 L 88.54 90.82
+           L 86.78 91.59 L 85.42 93.35 L 85.02 95.87 L 86.00 98.63
+           L 88.52 100.88 L 92.30 101.77 L 96.60 100.57 L 100.29 96.99
+           L 102.03 91.35 L 100.68 84.70 L 95.65 78.72 L 87.27 75.47
+           L 77.03 76.80 L 67.43 83.79 L 61.59 96.02 L 62.51 111.82
+           L 66.43 119.99 L 72.09 127.13 L 81.07 133.38 L 90.19 137.31
+           L 101.38 139.00 L 114.12 137.58 L 126.40 133.07 L 138.33 124.74
+           L 147.62 114.99 L 153.46 104.62 L 153.55 94.00"
+        fill="none" stroke="url(#g)" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="88.54"  cy="90.82"  r="1.8" fill="#FFFFFF" opacity="0.55"/>
+  <circle cx="92.30"  cy="101.77" r="2.2" fill="#FFFFFF" opacity="0.70"/>
+  <circle cx="87.27"  cy="75.47"  r="2.8" fill="#FFFFFF" opacity="0.82"/>
+  <circle cx="90.19"  cy="137.31" r="3.4" fill="#FFFFFF" opacity="0.90"/>
+  <circle cx="153.55" cy="94.00" r="9"   fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.30"/>
+  <circle cx="153.55" cy="94.00" r="5.5" fill="#FFFFFF"/>
+</svg>

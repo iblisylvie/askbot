@@ -1,0 +1,38 @@
+<svg viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg">
+  <title>anyseek — horizontal lockup (mark + wordmark)</title>
+  <desc>Banner-ready lockup. Use for site headers, WeChat banners, email signatures.</desc>
+  <defs>
+    <linearGradient id="hg" gradientUnits="userSpaceOnUse" x1="95.40" y1="96" x2="138.49" y2="96">
+      <stop offset="0%"   stop-color="#E07A5F" stop-opacity="0.55"/>
+      <stop offset="60%"  stop-color="#E07A5F" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#E07A5F" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mark: compact spiral, scaled to fit left ~100px -->
+  <g transform="translate(0, -4) scale(0.7)">
+    <path d="M 95.40 96.00
+             L 95.41 95.23 L 95.00 94.44 L 94.15 93.88 L 92.98 93.77
+             L 91.75 94.31 L 90.79 95.55 L 90.51 97.31 L 91.20 99.24
+             L 92.96 100.82 L 95.61 101.44 L 98.62 100.60 L 101.20 98.09
+             L 102.42 94.15 L 101.48 89.49 L 97.96 85.30 L 92.09 83.03
+             L 84.92 83.96 L 78.20 88.85 L 74.11 97.41 L 74.76 108.47
+             L 77.50 114.19 L 81.46 119.19 L 87.75 123.57 L 94.13 126.32
+             L 101.97 127.50 L 110.88 126.51 L 119.48 123.35 L 127.83 117.52
+             L 134.33 110.69 L 138.42 103.43 L 138.49 96.00"
+          fill="none" stroke="url(#hg)" stroke-width="4"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="92.98"  cy="93.77"  r="1.4" fill="#E07A5F" opacity="0.55"/>
+    <circle cx="95.61"  cy="101.44" r="1.7" fill="#E07A5F" opacity="0.70"/>
+    <circle cx="92.09"  cy="83.03"  r="2.2" fill="#E07A5F" opacity="0.82"/>
+    <circle cx="94.13"  cy="126.32" r="2.6" fill="#E07A5F" opacity="0.90"/>
+    <circle cx="138.49" cy="96.00" r="7"   fill="none" stroke="#E07A5F" stroke-width="0.7" opacity="0.30"/>
+    <circle cx="138.49" cy="96.00" r="4.2" fill="#E07A5F"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="118" y="70" dominant-baseline="central"
+        font-family="Inter, 'Helvetica Neue', 'PingFang SC', Arial, sans-serif"
+        font-size="56" font-weight="500" letter-spacing="3"
+        fill="#E07A5F">anyseek</text>
+</svg>
